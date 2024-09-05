@@ -1,9 +1,9 @@
 import React from 'react'
-import HomeIcon from '../buttons/icons/HomeIcon'
-import SearchIcon from '../buttons/icons/SearchIcon'
-import CreateIcon from '../buttons/icons/CreateIcon'
-import FavIcon from '../buttons/icons/FavIcon'
-import UserIcon from '../buttons/icons/UserIcon'
+import HomeIcon from '../../buttons/icons/HomeIcon'
+import SearchIcon from '../../buttons/icons/SearchIcon'
+import CreateIcon from '../../buttons/icons/CreateIcon'
+import FavIcon from '../../buttons/icons/FavIcon'
+import UserIcon from '../../buttons/icons/UserIcon'
 import { NavLink, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
