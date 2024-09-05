@@ -26,7 +26,8 @@ export default {
       },
       borderRadius: {
         inp: '0.65rem',
-        cont: '1.25rem' 
+        cont: '1.25rem',
+        big: '1.875rem', 
       },
       fontSize: {
         ptitle: '3.125rem',
@@ -35,6 +36,10 @@ export default {
         userp: '1.625rem',
         regu: '1.5rem',
         tiny: '1rem',
+      },
+      boxShadow: {
+        smalls: '2px 3px 0px 0px rgb(85, 67, 72)',
+        bigs: '3px 4px 0px 1px rgb(85, 67, 72)',
       }
     },
     
