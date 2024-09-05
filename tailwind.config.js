@@ -19,10 +19,10 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'gr-pink-pink': 'linear-gradient(180deg, #EFC3E6 100%, #F0A6CA 100%)',
-        'gr-lila-pink': 'linear-gradient(180deg, #9C89B8 100%, #F0A6CA 100%)',  
-        'gr-blue-lila': 'linear-gradient(180deg, #B8BEDD 100%, #9C89B8 100%)',
-        'gr-white-blue': 'linear-gradient(180deg, #F0E6EF 100%, #B8BEDD 100%)'
+        'gr-pink-pink': 'linear-gradient(180deg, #F0E6EF 0%, #F0A6CA 100%)',
+        'gr-lila-pink': 'linear-gradient(180deg, #9C89B8 0%, #F0A6CA 100%)',  
+        'gr-blue-lila': 'linear-gradient(180deg, #B8BEDD 0%, #9C89B8 100%)',
+        'gr-white-blue': 'linear-gradient(180deg, #F0E6EF 0%, #B8BEDD 100%)'
       },
       borderRadius: {
         inp: '0.65rem',
@@ -32,10 +32,10 @@ export default {
       fontSize: {
         ptitle: '3.125rem',
         stitle: '1.875rem',
-        ctitle: '1.25rem',
+        ctitle: '1.2rem',
         userp: '1.625rem',
         regu: '1.5rem',
-        tiny: '1rem',
+        tiny: '0.9rem',
       },
       boxShadow: {
         smalls: '2px 3px 0px 0px rgb(85, 67, 72)',
