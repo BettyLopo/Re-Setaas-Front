@@ -30,7 +30,7 @@ export default {
         big: '1.875rem', 
       },
       fontSize: {
-        ptitle: '3.125rem',
+        ptitle: '2.5rem',
         stitle: '1.875rem',
         ctitle: '1.2rem',
         userp: '1.625rem',
