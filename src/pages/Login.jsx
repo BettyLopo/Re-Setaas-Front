@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <section className="flex flex-col items-center justify-center bg-gr-pink-pink h-screen w-screen relative pb-[4rem] gap-[5rem]">
       <div className="fixed -z-9 inset-0">
-          <img src="/public/img/seta_2.svg" alt="Seta decorativa" className="fixed -bottom-12 w-[80%] right-6 -z-9 opacity-30"/>
+          <img src="/public/img/seta_2.svg" alt="Seta decorativa" className="fixed -bottom-12 w-[80%] -right-4 -z-9 opacity-25"/>
           <img src="/public/img/seta_1.svg" alt="Seta decorativa" className="fixed -top-5 w-[30%] -left-5 -z-9 opacity-90 rotate-[145deg]"/>
         </div>
       <h1 className="text-center font-ultra text-ptitle text-darklila leading-7 mb-7">Re<br/>(Setas)</h1>
@@ -39,9 +39,6 @@ const Login = () => {
           <p className="font-raleway text-regu font-semibold text-darklila">Registrate <Link to="/sign-in" className="font-ultra text-brokenwhite">aquí</Link></p>
         </div>
       </div>
-
-
-      
     </section>
   )
 }
