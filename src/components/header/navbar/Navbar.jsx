@@ -30,7 +30,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink 
         to="/login">
-            <UserIcon isActive={location.pathname === '/login' || '/sign-in'}/>
+            <UserIcon isActive={location.pathname === '/login'}/>
          </NavLink>
     </div>
   )
