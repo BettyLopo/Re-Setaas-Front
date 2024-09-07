@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../components/inputs/Input'
 import Button from '../components/buttons/Button'
 import { Link } from 'react-router-dom'
+import InputImg from '../components/inputs/InputImg'
 
 const Register = () => {
   return (
@@ -36,6 +37,7 @@ const Register = () => {
             type="password" 
             // value={password}
             onChange=""/>
+            <InputImg />
         </form>
         <div className="flex flex-row justify-center gap-4">
           <Button className="bg-lightlila text-brokenwhite" type="button" onClick="" text="Registrar"/>
