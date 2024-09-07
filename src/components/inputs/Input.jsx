@@ -10,7 +10,7 @@ const Input = ({placeholder, className, htmlFor, value, onChange, type, id}) => 
         value={value}
         placeholder={placeholder}
         onChange={onChange} 
-        className={`border-[0.1rem] border-brown rounded-inp shadow-bigs placeholder:font-raleway placeholder:text-darklila placeholder:text-regu text-left h-[2.5rem] placeholder:font-semibold placeholder:pl-4 ${className}`}/>
+        className={`border-[0.1rem] border-brown rounded-inp shadow-bigs placeholder:font-raleway placeholder:text-darklila placeholder:text-regu text-left h-[2.5rem] placeholder:font-semibold pl-4 pt-1 ${className}`}/>
     </div>
   )
 }
