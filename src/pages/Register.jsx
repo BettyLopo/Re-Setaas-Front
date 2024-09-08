@@ -16,7 +16,7 @@ const Register = () => {
         <form action="" onSubmit="" id="registro" className="flex flex-col justify-center gap-6">
         <Input 
             placeholder="Nombre" 
-            className="bg-brokenwhite w-[18.1rem]" 
+            className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
             id="nombre" 
             htmlFor="nombre" 
             type="text" 
@@ -24,7 +24,7 @@ const Register = () => {
             onChange="" />
           <Input 
             placeholder="E-mail" 
-            className="bg-brokenwhite w-[18.1rem]" 
+            className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
             id="email" 
             htmlFor="email" 
             type="email" 
@@ -32,13 +32,13 @@ const Register = () => {
             onChange="" />
           <Input 
             placeholder="Contraseña" 
-            className="bg-brokenwhite w-[18.1rem]" 
+            className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
             id="contrasena" 
             htmlFor="contrasena" 
             type="password" 
             // value={password}
             onChange=""/>
-            <InputImg />
+            <InputImg className="w-[19rem] gap-6"/>
         </form>
         <div className="flex flex-row justify-center gap-7 mt-2">
           <Button className="bg-lightlila text-brokenwhite" type="button" onClick="" text="Registrar"/>

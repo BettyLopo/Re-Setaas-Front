@@ -9,6 +9,7 @@ const Detail = () => {
 
 //Authentication user to show/hide elements
 //Fetch data
+const isAuth = true;
 
   return (
     <div className="bg-gr-white-blue w-screen h-full items-center">

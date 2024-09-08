@@ -16,7 +16,7 @@ const Login = () => {
         <form action="" onSubmit="" id="login" className="flex flex-col justify-center gap-7">
           <Input 
             placeholder="E-mail" 
-            className="bg-brokenwhite w-[18.1rem]" 
+            className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
             id="email" 
             htmlFor="email" 
             type="email" 
@@ -24,7 +24,7 @@ const Login = () => {
             onChange="" />
           <Input 
             placeholder="Contraseña" 
-            className="bg-brokenwhite w-[18.1rem]" 
+            className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
             id="contrasena" 
             htmlFor="contrasena" 
             type="password" 
