@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputImg = ({id, handleFileChange}) => {
+const InputImg = ({id, handleFileChange, className}) => {
   return (
     <div className="flex flex-row gap-2 justify-center items-center relative">
         
@@ -10,9 +10,9 @@ const InputImg = ({id, handleFileChange}) => {
             id={id} 
             type="file"
             onChange={handleFileChange}
-            className="opacity-0 absolute cursor-pointer w-[19rem] h-[2.5rem]"
+            className={`opacity-0 absolute cursor-pointer ${className} h-[2.5rem]`}
              />
-             <div className="w-[18rem] h-[2.5rem] bg-brokenwhite border-[0.1rem] border-brown shadow-bigs rounded-inp flex justify-start items-center gap-6 pl-4">
+             <div className={`${className} h-[2.5rem] bg-brokenwhite border-[0.1rem] border-brown shadow-bigs rounded-inp flex justify-start items-center pl-4`}>
              <p className='font-raleway text-regu text-darklila font-semibold'>Escoge una foto</p>
                 <img src="/img/Camera.svg" alt="" />
              </div>
