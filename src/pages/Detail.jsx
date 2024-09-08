@@ -3,15 +3,21 @@ import EditIcon from '../components/buttons/icons/EditIcon'
 import DeleteIcon from '../components/buttons/icons/DeleteIcon'
 import StarIcon from '../components/buttons/icons/StarIcon'
 import InfoContainer from '../components/recipeCard/InfoContainer'
+import HeartIcon from '../components/buttons/icons/HeartIcon'
 
 const Detail = () => {
+
+//Authentication user to show/hide elements
+//Fetch data
+
   return (
     <div className="bg-gr-white-blue w-screen h-full items-center">
       <div className="flex flex-col justify-center pt-4 pb-[8rem]">
-            <div className='flex flex-row justify-between py-5 px-8 items-stretch'>
+            <div className={`flex flex-row justify-between py-5 px-8 items-stretch ${!isAuth ? "hidden" : "block"}`}>
               <DeleteIcon />
               <EditIcon />
             </div>
+            <p className={`font-raleway text-regu text-darklila font-medium px-8 text-left ${isAuth ? "hidden" : "block"}`}>Autor</p>
             <div className='flex flex-col items-center'>
               <img src="/img/Img_tryout.jpeg" alt="" className="shadow-bigs border-brown border-[0.16rem] rounded-big aspect-[3/2] object-cover w-[21.5rem] "/>
             </div>
@@ -21,7 +27,8 @@ const Detail = () => {
             </div>
             <div className="px-9 flex flex-row gap-3 items-center py-2">
               <h1 className="font-ultra text-darklila text-ptitle leading-[2.2rem]">Espárragos al horno</h1>
-              <StarIcon className="justify-self-end"/>
+              <StarIcon className={`justify-self-end ${!isAuth ? "hidden" : "block"}`}/>
+              <HeartIcon className={`${isAuth ? "hidden" : "block"}`}/>
             </div>
             <div className="flex flex-col justify-center items-center pt-8 gap-9">
               <InfoContainer 
