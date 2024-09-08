@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputImg = ({id, handleFileChange, className}) => {
+const InputImg = ({id, handleFileChange, className, value}) => {
   return (
     <div className="flex flex-row gap-2 justify-center items-center relative">
         
@@ -9,6 +9,7 @@ const InputImg = ({id, handleFileChange, className}) => {
             <input
             id={id} 
             type="file"
+            value={value}
             onChange={handleFileChange}
             className={`opacity-0 absolute cursor-pointer ${className} h-[2.5rem]`}
              />
