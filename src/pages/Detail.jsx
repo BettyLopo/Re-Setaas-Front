@@ -6,8 +6,8 @@ import InfoContainer from '../components/recipeCard/InfoContainer'
 
 const Detail = () => {
   return (
-    <div className="bg-gr-white-blue w-screen h-screen items-center">
-      <div className="flex flex-col justify-center pt-4">
+    <div className="bg-gr-white-blue w-screen h-full items-center">
+      <div className="flex flex-col justify-center pt-4 pb-[8rem]">
             <div className='flex flex-row justify-between py-5 px-8 items-stretch'>
               <DeleteIcon />
               <EditIcon />
@@ -23,12 +23,22 @@ const Detail = () => {
               <h1 className="font-ultra text-darklila text-ptitle leading-[2.2rem]">Espárragos al horno</h1>
               <StarIcon className="justify-self-end"/>
             </div>
-            <div className="flex flex-col justify-center items-center pt-8">
+            <div className="flex flex-col justify-center items-center pt-8 gap-9">
               <InfoContainer 
-              className="bg-brokenwhite" 
+              className="bg-brokenwhite  text-darklila " 
               icon="/img/Ingredients.svg"
               title="Ingredientes"
-              content="Lorem ipsum lorem ipsum lorem ipsum"/>
+              content="3 patatas, 4 zanahorias, 1 cebolla, 1 manojo de esparragos"/>
+              <InfoContainer 
+              className="bg-lightlila text-brokenwhite" 
+              icon="/img/Spoon.svg"
+              title="Herramientas"
+              content="Airfryer, Sartén, Horno"/>
+              <InfoContainer 
+              className="bg-brokenwhite  text-darklila" 
+              icon="/img/Steps.svg"
+              title="Pasos"
+              content="Primero precalentamos el horno y pelamos las cebollas. Posteriormente ponemos la sartén al fuego y cortamos todas las verduras en trozos pequeños."/>
             </div>
         </div>
     </div>
