@@ -1,18 +1,21 @@
 import React from 'react'
+import Button from '../buttons/Button';
 
 const CategoryInput = () => {
 
+    const categories = ['Pasta', 'Fruta', 'Ensaladas', 'Postres'];
+
   return (
-    <div>
-        <form class="max-w-sm mx-auto">
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-brokenwhite border-[0.18rem] border-brown appearance-none dark:text-darklila dark:border-darklila focus:outline-none focus:ring-0 focus:border-gray-200">
+    <div className="w-[20.2rem] relative">
+        <form className="pt-2">
+        <label for="category" className="sr-only">Categorías</label>
+        <select id="category" className="block w-[20rem] py-2 px-2 text-ctitle font-semibold text-darklila font-raleway rounded-inp shadow-bigs bg-brokenwhite border-[0.16rem] border-brown appearance-none dark:text-darklila dark:border-darklila relative">
             <option selected>Escoge una categoría</option>
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="FR">France</option>
-            <option value="DE">Germany</option>
+                { categories.map((cate) => (
+                <option value={categories} className="focus:select-bg-softblue">{cate}</option>
+                ))} 
         </select>
+        <img src="img/Arrow.svg" alt="" className="absolute right-[1.2rem] top-[1.3rem]"/>
         </form>
     </div>
   )

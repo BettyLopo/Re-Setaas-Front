@@ -12,7 +12,7 @@ const InputImg = ({id, handleFileChange, className}) => {
             onChange={handleFileChange}
             className={`opacity-0 absolute cursor-pointer ${className} h-[2.5rem]`}
              />
-             <div className={`${className} h-[2.5rem] bg-brokenwhite border-[0.1rem] border-brown shadow-bigs rounded-inp flex justify-start items-center pl-4`}>
+             <div className={`${className} h-[2.8rem] bg-brokenwhite border-[0.18rem] border-brown shadow-bigs rounded-inp flex justify-start items-center pl-4`}>
              <p className='font-raleway text-regu text-darklila font-semibold'>Escoge una foto</p>
                 <img src="/img/Camera.svg" alt="" />
              </div>

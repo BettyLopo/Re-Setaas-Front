@@ -12,7 +12,7 @@ const Login = () => {
         </div>
       <h1 className="text-center font-ultra text-ptitle text-darklila leading-7 my-[3.5rem]">Re<br/>(Setas)</h1>
       <div className="flex flex-col relative gap-[2rem]">
-      <label htmlFor="login" className="text-center font-ultra text-darklila text-stitle ">Inicio sesión</label>
+      <label htmlFor="login" className="text-center font-ultra text-darklila text-stitle ">Inicia sesión</label>
         <form action="" onSubmit="" id="login" className="flex flex-col justify-center gap-7">
           <Input 
             placeholder="E-mail" 
