@@ -5,39 +5,45 @@ import InputImg from '../components/inputs/InputImg'
 import Input from '../components/inputs/Input'
 import CategoryInput from '../components/inputs/CategoryInput'
 import Button from '../components/buttons/Button'
+import DurationInput from '../components/inputs/DurationInput'
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("")
-  const [duration, setDuration] = useState("")
+  const [hours, setHours] = useState("");
+  const [minutes, setMinutes] = useState("");
   const [ingredients, setIngredients] = useState("")
   const [tools, setTools] = useState("")
   const [steps, setSteps] = useState("")
   const [faved, setFaved] = useState(false);
 
-  const handleSubmit = async (e) => {
 
   
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const formattedDuration = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
+
     try {
       const response = await fetch ("http://localhost:3001/recipes/create",
         {
           method: "POST",
           headers: {
-            'Authorization': 'Bearer ' + token,
+            // 'Authorization': 'Bearer ' + token,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             title: title,
             id_category: category,
             image: image,
-            duration: duration,
+            duration: formattedDuration,
             ingredients: ingredients,
             tools: tools,
             steps: steps,
-            faved: favs,
-            date: date,
+            faved: faved,
+            date: new Date().toISOString(),
             id_user: 2,
 
           }),
@@ -48,21 +54,22 @@ const Create = () => {
         setTitle();
         setCategory();
         setImage();
-        setDuration();
+        setHours();
+        setMinutes();
         setIngredients();
         setTools();
         setSteps();
         setFaved(false);
+        console.log("Receta creada correctamente")
       }
     
     } catch {
-      e.console.error();
+      console.log("Error creando receta")
+      console.error("Fetch error:", error);
     }
   }
 ; 
     
-  
-  
 
 
   return (
@@ -84,10 +91,19 @@ const Create = () => {
             id="titulo"
             value={title}/>
           </div>
-          <InputImg 
+          <DurationInput
+          valueMin={minutes}
+          valueHour={hours}
+          onChangeHour={(e) => setHours(e.target.value)}
+          onChangeMin={(e) => setMinutes(e.target.value)} />
+          <Input 
             onChange={(e) => setImage(e.target.value)}
-            className="w-[20.2rem] gap-[4rem]"
+            className="w-[20.2rem] gap-[4rem] mt-4"
             value={image}/>
+          {/* <InputImg 
+            onChange={(e) => setImage(e.target.value)}
+            className="w-[20.2rem] gap-[4rem] mt-4"
+            value={image}/> */}
           <InputTextArea 
             onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
