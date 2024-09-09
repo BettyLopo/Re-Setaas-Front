@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import useFormatDate from '../hooks/useFormatDate';
 import InputTextArea from '../components/inputs/InputTextArea'
 import InputImg from '../components/inputs/InputImg'
 import Input from '../components/inputs/Input'
@@ -20,6 +21,8 @@ const Create = () => {
 
 
   
+
+  const { formatDate } = useFormatDate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,8 +46,8 @@ const Create = () => {
             tools: tools,
             steps: steps,
             faved: faved,
-            date: new Date().toISOString(),
-            id_user: 2,
+            date: formatDate(new Date()),
+            id_user: 1,
 
           }),
         }
