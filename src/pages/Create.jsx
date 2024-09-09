@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useFormatDate from '../hooks/useFormatDate';
 import InputTextArea from '../components/inputs/InputTextArea'
 import InputImg from '../components/inputs/InputImg'
@@ -7,8 +8,14 @@ import Input from '../components/inputs/Input'
 import CategoryInput from '../components/inputs/CategoryInput'
 import Button from '../components/buttons/Button'
 import DurationInput from '../components/inputs/DurationInput'
+import PopUp from '../components/popUp/PopUp'
 
 const Create = () => {
+  const actualUser = parseInt(localStorage.getItem("user"));
+  const token = localStorage.getItem("authToken");
+
+  const navigate = useNavigate();
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("")
@@ -19,8 +26,11 @@ const Create = () => {
   const [steps, setSteps] = useState("")
   const [faved, setFaved] = useState(false);
 
+  const [popUpMessage, setPopUpMessage] = useState("");
+  const [popUpFunction, setPopUpFunction] = useState(null);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(null);
 
-  
+  const closePopup = () => setIsPopUpOpen(false);
 
   const { formatDate } = useFormatDate();
 
@@ -34,7 +44,7 @@ const Create = () => {
         {
           method: "POST",
           headers: {
-            // 'Authorization': 'Bearer ' + token,
+            'Authorization': 'Bearer ' + token,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -47,32 +57,51 @@ const Create = () => {
             steps: steps,
             faved: faved,
             date: formatDate(new Date()),
-            id_user: 1,
+            id_user: actualUser,
 
           }),
         }
       );
 
       if (response.ok) {
-        setTitle();
-        setCategory();
-        setImage();
-        setHours();
-        setMinutes();
-        setIngredients();
-        setTools();
-        setSteps();
+        setPopUpMessage(
+          `La receta ${title} se ha creado correctamente`
+        );
+        setTitle("");
+        setCategory("");
+        setImage("");
+        setHours("");
+        setMinutes("");
+        setIngredients("");
+        setTools("");
+        setSteps("");
         setFaved(false);
+        setPopUpFunction(() => navigateHome)
+        setIsPopUpOpen(true)
         console.log("Receta creada correctamente")
       }
     
     } catch {
+      setPopUpMessage(
+        `No se ha podido crear la receta ${title}`
+      );
+      setPopUpFunction(() => reloadPage)
+      setIsPopUpOpen(true)
       console.log("Error creando receta")
       console.error("Fetch error:", error);
     }
   }
 ; 
-    
+  const navigateHome = () => {
+    if (isPopUpOpen)setIsPopUpOpen(false);
+    navigate("/")
+  }
+
+  const reloadPage = () => {
+    if(isPopUpOpen) setIsPopUpOpen(false);
+    window.location.reload();
+  }
+
 
 
   return (
@@ -135,6 +164,14 @@ const Create = () => {
           </div>
         </form>
       </section>
+      <PopUp 
+        isPopUpOpen={isPopUpOpen}
+        closePopup={closePopup}
+        onConfirm={popUpFunction}
+        message={popUpMessage}
+        buttonAcc="Ver receta"
+        showCancel={false}
+      />
       
     </div>
   )

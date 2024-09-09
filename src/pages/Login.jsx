@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import Input from '../components/inputs/Input'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../components/buttons/Button'
+import PopUp from '../components/popUp/PopUp'
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [popUpMessage, setPopUpMessage] = useState("");
   const [popUpFunction, setPopUpFunction] = useState(null)
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const closePopup = () => setIsPopUpOpen(false);
 
   const navigate = useNavigate();
 
@@ -27,7 +31,8 @@ const Login = () => {
         const errorResponse = await response.json();
         console.error("Response error:", errorResponse);
         setPopUpMessage("Error, usuario o contraseña incorrectos.");
-        reloadPage();
+        setPopUpFunction(() => reloadPage);
+        setIsPopUpOpen(true);
         return;
       }
 
@@ -35,22 +40,27 @@ const Login = () => {
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', data.user.id);
       setPopUpMessage(
-        `Hola de nuevo ${data.user.username}`
+        `Hola de nuevo ${data.user.name} <3`
       );
-      console.log(`Hola de nuevo ${data.user.username}`)
-      navigateHome();
+      console.log(`Hola de nuevo ${data.user.name}`)
+      setPopUpFunction(() => navigateHome)
+      setIsPopUpOpen(true);
       
     } catch (error) {
       console.error("Fetch error:", error);
       setPopUpMessage("Error, usuario o contraseña incorrectos.");
+      setPopUpFunction(() => reloadPage)
+      setIsPopUpOpen(true)
     }
   }
 
   const reloadPage = () => {
+    if (isPopUpOpen)setIsPopUpOpen(false);
     window.location.reload();
   }
 
   const navigateHome = () => {
+    if (isPopUpOpen)setIsPopUpOpen(false);
     navigate("/")
   }
 
@@ -82,8 +92,17 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             />
           <div className="flex flex-row justify-center gap-7 mt-2">
-          <Button className="bg-lightlila text-brokenwhite" type="submit" text="Aceptar"/>
-          <Button className="bg-softblue  text-darklila" type="button" text="Cancelar"/>
+          <Button 
+            className="bg-lightlila text-brokenwhite" 
+            type="submit" 
+            text="Aceptar"/>
+          <Button 
+          className="bg-softblue  text-darklila" 
+          type="button" 
+          text="Cancelar"
+          onClick={() => {
+            navigate("/")
+          }}/>
         </div>
         </form>
         <div className="text-center my-2">
@@ -91,6 +110,14 @@ const Login = () => {
           <p className="font-raleway text-regu font-semibold text-darklila">Registrate <Link to="/sign-in" className="font-ultra text-brokenwhite">aquí</Link></p>
         </div>
       </div>
+      <PopUp 
+        isPopUpOpen={isPopUpOpen}
+        closePopup={closePopup}
+        onConfirm={popUpFunction}
+        message={popUpMessage}
+        buttonAcc="Aceptar"
+        showCancel={false}
+      />
     </section>
   )
 }
