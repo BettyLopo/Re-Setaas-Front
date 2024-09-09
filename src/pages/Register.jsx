@@ -16,19 +16,20 @@ const Register = () => {
       e.preventDefault;
 
       try {
-        const response = await fetch("http://localhost:3001/register",
+        const response = await fetch("http://localhost:3001/auth/register",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, email, password, profile })
+            body: JSON.stringify({ username, email, password })
           }
         );
 
         if(!response.ok) {
           //setPopUpMessage()
           console.log("Error, no se ha podido crear el usuario.")
+          console.error("Fetch error:", error)
         }
         //setPopUpMessage
         console.log("El usuario se ha creado correctamente, ya puedes iniciar sesión.")
@@ -36,12 +37,13 @@ const Register = () => {
         
       } catch (error) {
         console.error("No se ha podido crear el usuario.")
+        console.error("Fetch error:", error)
         
       }
     }
 
     const navigateLogin = () => {
-      navigate("/login")
+      navigate("/")
     }
 
 
@@ -78,9 +80,9 @@ const Register = () => {
             type="password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}/>
-            <InputImg className="w-[18.1rem] gap-6"/>
+            {/* <InputImg className="w-[18.1rem] gap-6"/> */}
             <div className="flex flex-row justify-center gap-7 mt-2">
-              <Button className="bg-lightlila text-brokenwhite" type="submit" onClick="" text="Registrar"/>
+              <Button className="bg-lightlila text-brokenwhite" type="submit" text="Registrar"/>
               <Button className="bg-softblue  text-darklila" type="button" onClick={() => {navigate("/")}} text="Cancelar"/>
             </div>
         </form>
