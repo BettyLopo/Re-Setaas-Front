@@ -22,7 +22,7 @@ const Register = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, email, password })
+            body: JSON.stringify({ username, email, password, profile })
           }
         );
 
@@ -80,7 +80,10 @@ const Register = () => {
             type="password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}/>
-            {/* <InputImg className="w-[18.1rem] gap-6"/> */}
+            <InputImg 
+              className="w-[18.1rem] gap-6"
+              onChange={(imgUrl) => setProfile(imgUrl)}
+              value={profile}/>
             <div className="flex flex-row justify-center gap-7 mt-2">
               <Button className="bg-lightlila text-brokenwhite" type="submit" text="Registrar"/>
               <Button className="bg-softblue  text-darklila" type="button" onClick={() => {navigate("/")}} text="Cancelar"/>

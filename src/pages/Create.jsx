@@ -132,10 +132,10 @@ const Create = () => {
             onChange={(e) => setImage(e.target.value)}
             className="w-[20.2rem] gap-[4rem] mt-4"
             value={image}/>
-          {/* <InputImg 
-            onChange={(e) => setImage(e.target.value)}
+          <InputImg 
+            onChange={(imgUrl) => setImage(imgUrl)}
             className="w-[20.2rem] gap-[4rem] mt-4"
-            value={image}/> */}
+            value={image}/>
           <InputTextArea 
             onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
