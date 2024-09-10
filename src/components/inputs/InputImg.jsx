@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const InputImg = ({id, handleFileChange, className, value, onChange}) => {
+const InputImg = ({id, className, value, onChange}) => {
 
-  const preset_name = "";
-  const cloud_name = "";
+  const preset_name = "one";
+  const cloud_name = "two";
 
   const [fileName, setFileName]= useState("");
   const [selectedFile, setSelectedFile] = useState(false);
