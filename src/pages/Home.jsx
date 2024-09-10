@@ -1,8 +1,33 @@
 import React from 'react'
+import { useState, useEffect } from "react";
 import RecipeCard from '../components/recipeCard/RecipeCard'
 import Filter from '../components/filter/Filter'
+import Carousel from '../components/recipeCard/CarouselRecipes';
 
 const Home = () => {
+  //const userAuth = useAuth().isAuthenticated;
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/recipes');
+      if(!response.ok) {
+        throw new Error('Se ha fallado recogiendo las recetas');
+      }
+      const data = await response.json();
+      setRecipes(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching recipes");
+    }
+    
+  }
+
+
   return (
     <div className="bg-gr-pink-pink w-screen h-screen relative">
       <div className="fixed -z-9 inset-0">
@@ -17,7 +42,11 @@ const Home = () => {
           </div>
         </div>
         <section className="flex flex-col justify-center items-center">
-          <RecipeCard recipe="Espárragos al horno" time="1h 30min" user="pepitogrillo" category="pasta"/>
+            <Carousel 
+            recipes={recipes}
+            //isLoggedIn={userAuth}
+            />
+          
         </section>
       </div>
      
