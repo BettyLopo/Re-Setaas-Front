@@ -9,12 +9,26 @@ import CategoryInput from '../components/inputs/CategoryInput'
 import Button from '../components/buttons/Button'
 import DurationInput from '../components/inputs/DurationInput'
 import PopUp from '../components/popUp/PopUp'
+import useFormValidation from '@/hooks/useFormValidation';
+import { validateCreateForm } from '@/hooks/useFormValidation';
 
 const Create = () => {
   const actualUser = parseInt(localStorage.getItem("user"));
   const token = localStorage.getItem("authToken");
 
   const navigate = useNavigate();
+
+  const { values, errors, validateFields, handleChange, resetForm } = useFormValidation({
+        title: "",
+        category:"",
+        image: "",
+        duration:"",
+        ingredients: "",
+        tools: "",
+        steps: "",
+    },
+  validateCreateForm
+);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -136,6 +150,11 @@ const Create = () => {
             onChange={(imgUrl) => setImage(imgUrl)}
             className="w-[20.2rem] gap-[4rem] mt-4"
             value={image}/>
+            {errors.image && (
+                                <p className="text-pink text-sm pl-3">
+                                    Imagen requerida
+                                </p>
+                            )}
           <InputTextArea 
             onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
