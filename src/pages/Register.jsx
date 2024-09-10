@@ -3,6 +3,7 @@ import Input from '../components/inputs/Input'
 import Button from '../components/buttons/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import InputImg from '../components/inputs/InputImg'
+import PopUp from '@/components/popUp/PopUp'
 
 const Register = () => {
     const [username, setUsermame] = useState("");
@@ -11,6 +12,12 @@ const Register = () => {
     const [profile, setProfile] = useState("")
 
     const navigate = useNavigate();
+
+    const [popUpMessage, setPopUpMessage] = useState("");
+    const [popUpFunction, setPopUpFunction] = useState(null);
+    const [isPopUpOpen, setIsPopUpOpen] = useState(null);
+  
+    const closePopup = () => setIsPopUpOpen(false);
 
     const handleSubmit = async (e) => {
       e.preventDefault;
@@ -27,23 +34,32 @@ const Register = () => {
         );
 
         if(!response.ok) {
-          //setPopUpMessage()
-          console.log("Error, no se ha podido crear el usuario.")
+          setPopUpMessage("Error, no se ha podido crear el usuario.")
           console.error("Fetch error:", error)
-        }
-        //setPopUpMessage
-        console.log("El usuario se ha creado correctamente, ya puedes iniciar sesión.")
-        navigateLogin();
+        };
+          setUsername("");
+          setEmail("");
+          setPassword("")
+          setProfile("");
+          setPopUpFunction(() => navigateLogin)
+          setPopUpMessage(`El usuario ${username} se ha creado correctamente, ya puedes iniciar sesión.`);       
         
       } catch (error) {
-        console.error("No se ha podido crear el usuario.")
+        setPopUpMessage("No se ha podido crear el usuario.")
+        setPopUpFunction(() => reloadPage)
+        setIsPopUpOpen(true)
         console.error("Fetch error:", error)
         
       }
-    }
+    };
 
     const navigateLogin = () => {
       navigate("/")
+    }
+
+    const reloadPage = () => {
+      if(isPopUpOpen) setIsPopUpOpen(false);
+      window.location.reload();
     }
 
 
@@ -94,6 +110,14 @@ const Register = () => {
           <p className="font-raleway text-regu font-semibold text-darklila">Entra <Link to="/login" className="font-ultra text-brokenwhite">aquí</Link></p>
         </div>
       </div>
+      <PopUp 
+        isPopUpOpen={isPopUpOpen}
+        closePopup={closePopup}
+        onConfirm={popUpFunction}
+        message={popUpMessage}
+        buttonAcc="Ver receta"
+        showCancel={false}
+      />
       
     </section>
   )
