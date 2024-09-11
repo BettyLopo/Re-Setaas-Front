@@ -2,12 +2,12 @@ import React from 'react'
 import HeartIcon from '../buttons/icons/HeartIcon'
 import { useNavigate } from 'react-router-dom'
 
-const RecipeCard = ({recipe, time, user, category, id, isLoggedIn}) => {
+const RecipeCard = ({recipe, time, user, image, category, id, isLoggedIn}) => {
     const navigate = useNavigate();
 
-    // const handleRedirect = () => {
-    //     navigate(`/detail/${name}`, { state: { data, id}})
-    // }
+    const handleRedirect = () => {
+        navigate(`/detail/${recipe}`, { state: { data: id}})
+    }
 
 
   return (
@@ -15,14 +15,14 @@ const RecipeCard = ({recipe, time, user, category, id, isLoggedIn}) => {
         <section className="m-4 w-[18.75rem] h-[16.6rem] rounded-inp bg-brokenwhite border-[0.15rem] border-brown ">
                 <div className="flex flex-row justify-between py-5 px-5">
                     <HeartIcon />
-                    {/* <button onClick={handleRedirect} className={!isLoggedIn ? "hidden" : "block"}>
+                    <button id={id} name={recipe} onClick={handleRedirect} className={!isLoggedIn ? "hidden" : "block"}>
                         <img src="img/Detail.svg" alt="detalle de la receta" />
-                    </button> */}
+                    </button>
                     
                 </div>
                 <img 
-                    src="" 
-                    alt="" 
+                    src={image} 
+                    alt={`imagen de ${recipe}`}
                     className=""
                 />
         </section>

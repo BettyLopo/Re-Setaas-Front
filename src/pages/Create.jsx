@@ -57,7 +57,7 @@ const Create = () => {
             steps: steps,
             faved: faved,
             date: formatDate(new Date()),
-            id_user: 1,
+            id_user: actualUser,
 
           }),
         }
