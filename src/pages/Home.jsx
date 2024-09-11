@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import RecipeCard from '../components/recipeCard/RecipeCard'
 import Filter from '../components/filter/Filter'
 import Carousel from '../components/recipeCard/CarouselRecipes';
+import { useAuth } from '@/hooks/useAuth';
 
 const Home = () => {
-  //const userAuth = useAuth().isAuthenticated;
+  const userAuth = useAuth().isAuthenticated;
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const Home = () => {
         <section className="flex flex-col justify-center items-center">
             <Carousel 
             recipes={recipes}
-            //isLoggedIn={userAuth}
+            isLoggedIn={userAuth}
             />
           
         </section>
