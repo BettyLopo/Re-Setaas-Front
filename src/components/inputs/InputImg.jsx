@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 const InputImg = ({id, className, value, onChange}) => {
 
-  const preset_name = "one";
-  const cloud_name = "two";
+  const preset_name = "u7m857fi";
+  const cloud_name = "dmhx2hija";
 
   const [fileName, setFileName]= useState("");
   const [selectedFile, setSelectedFile] = useState(false);
@@ -25,7 +25,7 @@ const InputImg = ({id, className, value, onChange}) => {
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, 
+        `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, 
         {
           method: 'POST',
           body: data

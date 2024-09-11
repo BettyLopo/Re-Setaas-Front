@@ -57,7 +57,7 @@ const Create = () => {
             steps: steps,
             faved: faved,
             date: formatDate(new Date()),
-            id_user: actualUser,
+            id_user: 1,
 
           }),
         }
@@ -128,10 +128,6 @@ const Create = () => {
           valueHour={hours}
           onChangeHour={(e) => setHours(e.target.value)}
           onChangeMin={(e) => setMinutes(e.target.value)} />
-          <Input 
-            onChange={(e) => setImage(e.target.value)}
-            className="w-[20.2rem] gap-[4rem] mt-4"
-            value={image}/>
           <InputImg 
             onChange={(imgUrl) => setImage(imgUrl)}
             className="w-[20.2rem] gap-[4rem] mt-4"
@@ -169,7 +165,7 @@ const Create = () => {
         closePopup={closePopup}
         onConfirm={popUpFunction}
         message={popUpMessage}
-        buttonAcc="Ver receta"
+        buttonAcc="Aceptar"
         showCancel={false}
       />
       

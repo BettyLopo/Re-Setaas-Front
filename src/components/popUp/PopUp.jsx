@@ -31,7 +31,7 @@ const PopUp = ({message, buttonAcc, isPopUpOpen, onConfirm, closePopup, showCanc
       
     <div className="flex flex-col justify-center gap-3 items-center w-[16rem] shadow-bigs rounded-cont bg-pink h-auto py-6 border-[0.18rem] border-brown">
     <img src="/img/Ingredients.svg" alt="" />
-      <p className="font-raleway text-regu text-center font-semibold">{message}</p>
+      <p className="font-raleway text-regu text-center font-semibold px-3">{message}</p>
       <div className="flex flex-col gap-4">
         <Button 
           className="bg-lightlila text-brokenwhite" 
