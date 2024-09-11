@@ -41,7 +41,7 @@ const CarouselRecipes = ({ recipes, isLoggedIn}) => {
                         id={recipe.id}
                         recipe={recipe.title}
                         time={recipe.duration}
-                        user={recipe.userName} 
+                        user={recipe.user.username} 
                         category={recipe.categoryName}
                         isLoggedIn={isLoggedIn}
                         />
