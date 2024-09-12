@@ -33,16 +33,19 @@ const Register = () => {
           }
         );
 
-        if(response.ok) {
+        if(!response.ok) {
+          setPopUpMessage("Error, no se ha podido crear el usuario.")
+          setIsPopUpOpen(true)
+          setPopUpFunction(() => reloadPage)
+          console.error("Fetch error:", error)
+        } else {
             setUsername("");
             setEmail("");
             setPassword("")
             setProfile("");
             setPopUpMessage(`El usuario ${username} se ha creado correctamente, ya puedes iniciar sesión.`);
-            setPopUpFunction(() => navigateLogin)    
-        } else {
-            setPopUpMessage("Error, no se ha podido crear el usuario.")
-            console.error("Fetch error:", error)
+            setIsPopUpOpen(true); 
+            setPopUpFunction(() => navigateLogin)
         }
       } catch (error) {
         setPopUpMessage("No se ha podido crear el usuario.")
