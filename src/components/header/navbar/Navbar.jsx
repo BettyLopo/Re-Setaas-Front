@@ -26,8 +26,8 @@ const Navbar = () => {
 
     const location = useLocation();
 
-  return (
-    <div className="flex flex-row justify-between px-3 gap-[1.5rem] items-center rounded-big w-[23rem] bg-softblue border-brown border-[0.25rem] h-[4.65rem]">
+  return ( 
+    <div className="flex flex-row justify-around px-3 gap-[1.5rem] items-center rounded-big w-[23rem] bg-softblue border-brown border-[0.25rem] h-[4.65rem]">
         <NavLink 
         to="/">
             <HomeIcon isActive={location.pathname === '/'}/>
@@ -45,8 +45,9 @@ const Navbar = () => {
         )}
         
         <NavLink 
-        onClick={handleLogout}>
-            <FavIcon 
+        onClick={handleLogout}
+        className={isAuthenticated ? "block" : "hidden"}>
+            <UserIcon 
             // isActive={location.pathname === '/favs/:name?'}
             />
         </NavLink>
