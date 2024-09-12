@@ -21,8 +21,7 @@ const CategoryInput = ({value, onChange}) => {
     }, []);
 
   return (
-    <div className="w-[20.2rem] relative">
-        <form className="pt-2">
+    <div className="w-[20.2rem] relative pt-2">
         <label for="category" className="sr-only">Categorías</label>
         <select 
             id="category" 
@@ -37,7 +36,6 @@ const CategoryInput = ({value, onChange}) => {
                 ))} 
         </select>
         <img src="img/Arrow.svg" alt="" className="absolute right-[1.2rem] top-[1.3rem]"/>
-        </form>
     </div>
   )
 }

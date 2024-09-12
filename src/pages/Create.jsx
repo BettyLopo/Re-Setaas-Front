@@ -157,7 +157,7 @@ const Create = () => {
               className="bg-softblue text-darklila" 
               type="button" 
               text="Cancelar"
-              onClick=""/>
+              onClick={navigateHome}/>
           </div>
         </form>
       </section>

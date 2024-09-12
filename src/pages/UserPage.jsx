@@ -1,5 +1,7 @@
 import UserRecipes from '@/components/recipeCard/UserRecipes'
 import React, { useEffect, useState } from 'react'
+import recipesData from '@/utils/recipesData'
+import UserControl from '@/components/buttons/user/UserControl'
 
 const UserPage = () => {
   // const [recipes, setRecipes] = useState([])
@@ -23,30 +25,28 @@ const UserPage = () => {
   //   }
   // }
 
-  const recipes = [
-    {
-      id: 1,
-      title: "Carbonara",
-      image: "https://tse2.mm.bing.net/th?id=OIP.Z5n2hqYegs1_o4GDHBxRkwHaFj&pid=Api"
-    },
-    {
-      id: 2,
-      title: "Tiramisu",
-      image: "https://images.coplusk.net/project_images/180886/image/105535_2F2014-11-12-200508-Tiramisu.jpg"
-    },
-  ]
 
 
   return (
-    <div className="w-screen h-screen bg-gr-lila-pink">
-      <section className="px-7 py-9">
+    <div className="w-screen h-full bg-gr-lila-pink pb-[7rem] relative">
+      <div className="fixed -z-9 inset-0">
+          <img src="/public/img/seta_2.svg" alt="Seta decorativa" className="fixed -bottom-12 w-[80%] -right-4 -z-9 opacity-25"/>
+          <img src="/public/img/seta_1.svg" alt="Seta decorativa" className="fixed -top-5 w-[30%] -left-5 -z-9 opacity-90 rotate-[145deg]"/>
+        </div>
+      <section className="px-7 py-9 relative">
         <h1 className="py-5 font-ultra text-brokenwhite
         text-ptitle leading-7">Nombre usuario</h1>
         <p className="text-regu font-raleway text-darklila">XX recetas</p>
       </section>
-      <section>
+      <section className="flex flex-col gap-4 relative">
+        <UserControl />
+        <div>
+          <h2 className="font-ultra text-stitle ml-7 text-darklila">Mis recetas</h2>
+          <hr className="border-[0.13rem] border-darklila mx-6 mb-3"/>
+        </div>
+        
         <UserRecipes
-          recipes={recipes}/>
+          recipes={recipesData}/>
       </section>
     </div>
   )
