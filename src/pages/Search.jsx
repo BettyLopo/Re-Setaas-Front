@@ -1,4 +1,3 @@
-import Input from '@/components/inputs/Input'
 import SearchInput from '@/components/inputs/SearchInput'
 import React from 'react'
 
@@ -8,7 +7,6 @@ const Search = () => {
       <div className="flex flex-col py-[6rem] px-10 gap-4 ">
         <h1 className="font-ultra text-ptitle text-darklila text-left">Búsqueda</h1>
         <SearchInput />
-        
       </div>
       
     </div>

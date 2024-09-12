@@ -14,8 +14,7 @@ const SearchInput = () => {
                 return (
                     value &&
                     recipe &&
-                    (recipe.category.toLowerCase().includes(value.toLowerCase()) ||
-                    recipe.user.toLowerCase().includes(value.toLowerCase()))
+                    (recipe.title.toLowerCase().includes(value.toLowerCase()))
                 );
             });
             setResultState(results);

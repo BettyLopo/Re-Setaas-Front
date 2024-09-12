@@ -44,8 +44,8 @@ const Home = () => {
         </div>
         <section className="flex flex-col justify-center items-center">
             <Carousel 
-            recipes={recipes}
-            isLoggedIn={userAuth}
+              recipes={recipes}
+              isLoggedIn={userAuth}
             />
           
         </section>
