@@ -33,17 +33,17 @@ const Register = () => {
           }
         );
 
-        if(!response.ok) {
-          setPopUpMessage("Error, no se ha podido crear el usuario.")
-          console.error("Fetch error:", error)
-        };
-          setUsername("");
-          setEmail("");
-          setPassword("")
-          setProfile("");
-          setPopUpFunction(() => navigateLogin)
-          setPopUpMessage(`El usuario ${username} se ha creado correctamente, ya puedes iniciar sesión.`);       
-        
+        if(response.ok) {
+            setUsername("");
+            setEmail("");
+            setPassword("")
+            setProfile("");
+            setPopUpMessage(`El usuario ${username} se ha creado correctamente, ya puedes iniciar sesión.`);
+            setPopUpFunction(() => navigateLogin)    
+        } else {
+            setPopUpMessage("Error, no se ha podido crear el usuario.")
+            console.error("Fetch error:", error)
+        }
       } catch (error) {
         setPopUpMessage("No se ha podido crear el usuario.")
         setPopUpFunction(() => reloadPage)
@@ -54,7 +54,7 @@ const Register = () => {
     };
 
     const navigateLogin = () => {
-      navigate("/")
+      navigate("/login")
     }
 
     const reloadPage = () => {
@@ -99,7 +99,7 @@ const Register = () => {
             <InputImg 
               className="w-[18.1rem] gap-6"
               onChange={(imgUrl) => setProfile(imgUrl)}
-              value={profile}/>
+              />
             <div className="flex flex-row justify-center gap-7 mt-2">
               <Button className="bg-lightlila text-brokenwhite" type="submit" text="Registrar"/>
               <Button className="bg-softblue  text-darklila" type="button" onClick={() => {navigate("/")}} text="Cancelar"/>
@@ -115,7 +115,7 @@ const Register = () => {
         closePopup={closePopup}
         onConfirm={popUpFunction}
         message={popUpMessage}
-        buttonAcc="Ver receta"
+        buttonAcc="Aceptar"
         showCancel={false}
       />
       
