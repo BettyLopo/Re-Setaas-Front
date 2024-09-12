@@ -53,8 +53,10 @@ const Navbar = () => {
         
          {isAuthenticated ? (
             <NavLink
-                to="/user/:name?">
-                <LoggedIcon onClick={handleUserPage} isActive={location.pathname === '/user/:name?'}/>
+                to="/userpage">
+                <LoggedIcon 
+                onClick={handleUserPage} 
+                isActive={location.pathname === '/userpage'}/>
             </NavLink>
          ) : (
             <NavLink 

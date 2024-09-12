@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
                 element: <Register />,
             },
             {
-                path: '/user/:name?',
+                path: '/userpage',
                 element: <UserPage />,
             },
             {
