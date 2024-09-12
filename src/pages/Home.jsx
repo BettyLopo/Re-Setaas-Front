@@ -38,9 +38,9 @@ const Home = () => {
       <div className="flex flex-col justify-center relative">
         <div className="flex flex-col ml-7 mb-8">
           <h1 className="font-ultra text-darklila text-ptitle leading-9 pt-[5rem] pb-[1.5rem] ">Hora de comeeeer</h1>
-          <div className="flex justify-end mr-7">
+          {/* <div className="flex justify-end mr-7">
             <Filter />
-          </div>
+          </div> */}
         </div>
         <section className="flex flex-col justify-center items-center">
             <Carousel 
