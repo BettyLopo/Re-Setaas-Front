@@ -12,8 +12,8 @@ const RecipeCard = ({recipe, time, user, image, category, id, isLoggedIn}) => {
 
   return (
     <div className="w-[21.25rem] h-[24rem] rounded-cont bg-softblue border-brown border-[0.18rem] shadow-bigs flex flex-col ">
-        <section className="m-4 w-[18.75rem] h-[16.6rem] rounded-inp bg-brokenwhite border-[0.15rem] border-brown ">
-                <div className="flex flex-row justify-between py-5 px-5">
+        <section className="m-4 w-[18.75rem] h-[16.6rem] rounded-inp bg-brokenwhite border-[0.15rem] border-brown overflow-hidden">
+                <div className="flex flex-row justify-between py-5 px-5 absolute top-6 left-6 w-[85%] z-40">
                     <HeartIcon />
                     <button id={id} name={recipe} onClick={handleRedirect} className={!isLoggedIn ? "hidden" : "block"}>
                         <img src="img/Detail.svg" alt="detalle de la receta" />
@@ -23,7 +23,7 @@ const RecipeCard = ({recipe, time, user, image, category, id, isLoggedIn}) => {
                 <img 
                     src={image} 
                     alt={`imagen de ${recipe}`}
-                    className=""
+                    className="aspect-square object-cover h-full w-full"
                 />
         </section>
         <section className="flex flex-col">

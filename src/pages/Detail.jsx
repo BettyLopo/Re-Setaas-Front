@@ -16,7 +16,11 @@ const Detail = () => {
   const [recipeData, setRecipeData] = useState(null)
 
   useEffect(() => {
-    const fetchRecipe = async () => {
+    fetchRecipe();
+  }, [id])
+  
+
+const fetchRecipe = async () => {
       try {
           const response = await fetch(`http://localhost:3001/recipes/${id}`,{
             headers: {
@@ -35,27 +39,21 @@ const Detail = () => {
       }
     };
 
-    fetchRecipe();
-  }, [id])
-  
-
-
-
-
-
   return (
     <div className="bg-gr-white-blue w-screen h-full items-center">
       <div className="flex flex-col justify-center pt-4 pb-[8rem]">
-            <div className={`flex flex-row justify-between py-5 px-8 items-stretch ${recipeData.id_user == actualUser ? "block" : "hidden"}`}>
+            <div className={`flex flex-row justify-between py-5 px-8 items-stretch 
+           
+            `}>
               <DeleteIcon id={id} />
-              <EditIcon id={id} name={recipeData.name}/>
+              <EditIcon id={id} name={recipeData.title}/>
             </div>
             <p className={`font-raleway text-regu text-darklila font-medium px-8 text-left ${isAuth ? "hidden" : "block"}`}>Autor</p>
             <div className='flex flex-col items-center'>
               <img src="/img/Img_tryout.jpeg" alt="" className="shadow-bigs border-brown border-[0.16rem] rounded-big aspect-[3/2] object-cover w-[21.5rem] "/>
             </div>
             <div className="flex flex-row justify-between py-5 px-8 font-raleway text-darklila">
-                <p className='text-tiny'>#categoría</p>
+                <p className='text-tiny'>{recipeData.title}</p>
                 <p className='text-regu'>1 h 31 min</p>
             </div>
             <div className="px-9 flex flex-row gap-3 items-center py-2">
@@ -79,7 +77,8 @@ const Detail = () => {
               icon="/img/Steps.svg"
               title="Pasos"
               content="Primero precalentamos el horno y pelamos las cebollas. Posteriormente ponemos la sartén al fuego y cortamos todas las verduras en trozos pequeños."/>
-            </div>
+
+        </div>
         </div>
     </div>
   )

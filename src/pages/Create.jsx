@@ -81,7 +81,8 @@ const Create = () => {
         console.log("Receta creada correctamente")
       }
     
-    } catch {
+    } catch (error) {
+      console.log(error)
       setPopUpMessage(
         `No se ha podido crear la receta ${title}`
       );
@@ -131,7 +132,7 @@ const Create = () => {
           <InputImg 
             onChange={(imgUrl) => setImage(imgUrl)}
             className="w-[20.2rem] gap-[4rem] mt-4"
-            value={image}/>
+            />
           <InputTextArea 
             onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
