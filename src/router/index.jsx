@@ -7,6 +7,8 @@ import UserPage from "../pages/UserPage";
 import Create from "../pages/Create";
 import Edit from "../pages/Edit";
 import Detail from "../pages/Detail";
+import Favs from "../pages/Favs";
+import Search from "../pages/Search";
 
 
 export const router = createBrowserRouter([
@@ -27,7 +29,7 @@ export const router = createBrowserRouter([
                 element: <Register />,
             },
             {
-                path: '/user/:name?',
+                path: '/userpage',
                 element: <UserPage />,
             },
             {
@@ -39,8 +41,16 @@ export const router = createBrowserRouter([
                 element: <Edit />,
             },
             {
-                path: '/deetail/:name?',
+                path: '/detail/:name',
                 element: <Detail />,
+            },
+            {
+                path: '/favs/:name?',
+                element: <Favs />
+            },
+            {
+                path: '/search',
+                element: <Search />
             }
         ],
     },
