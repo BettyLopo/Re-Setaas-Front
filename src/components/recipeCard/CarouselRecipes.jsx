@@ -23,7 +23,7 @@ const CarouselRecipes = ({ recipes, isLoggedIn}) => {
                           recipe={recipe.title}
                           time={recipe.duration}
                           image={recipe.image}
-                          user={recipe.user.username} 
+                          user={recipe.user.name} 
                           isLoggedIn={isLoggedIn}
                           />
                   </CarouselItem>

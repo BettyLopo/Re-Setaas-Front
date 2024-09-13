@@ -6,10 +6,9 @@ import InputImg from '../components/inputs/InputImg'
 import PopUp from '@/components/popUp/PopUp'
 
 const Register = () => {
-    const [username, setUsermame] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [profile, setProfile] = useState("")
 
     const navigate = useNavigate();
 
@@ -29,7 +28,7 @@ const Register = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, email, password, profile })
+            body: JSON.stringify({ name, email, password })
           }
         );
 
@@ -39,7 +38,7 @@ const Register = () => {
           setPopUpFunction(() => reloadPage)
           console.error("Fetch error:", error)
         } else {
-            setUsername("");
+            setName("");
             setEmail("");
             setPassword("")
             setProfile("");
@@ -81,8 +80,8 @@ const Register = () => {
             id="nombre" 
             htmlFor="nombre" 
             type="text" 
-            value={username}
-            onChange={(e) => setUsermame(e.target.value)} />
+            value={name}
+            onChange={(e) => setName(e.target.value)} />
           <Input 
             placeholder="E-mail" 
             className="bg-brokenwhite w-[18.1rem] placeholder:text-darklila" 
@@ -99,10 +98,6 @@ const Register = () => {
             type="password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}/>
-            <InputImg 
-              className="w-[18.1rem] gap-6"
-              onChange={(imgUrl) => setProfile(imgUrl)}
-              />
             <div className="flex flex-row justify-center gap-7 mt-2">
               <Button className="bg-lightlila text-brokenwhite" type="submit" text="Registrar"/>
               <Button className="bg-softblue  text-darklila" type="button" onClick={() => {navigate("/")}} text="Cancelar"/>

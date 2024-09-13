@@ -40,9 +40,8 @@ const Login = () => {
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', data.user.id);
       setPopUpMessage(
-        `Hola de nuevo ${data.user.username} <3`
+        `Hola de nuevo ${data.user.name} <3`
       );
-      console.log(`Hola de nuevo ${data.user.username}`)
       setPopUpFunction(() => navigateHome)
       window.location.reload()
       setIsPopUpOpen(true);
