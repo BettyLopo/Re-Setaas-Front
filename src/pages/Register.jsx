@@ -42,7 +42,7 @@ const Register = () => {
             setEmail("");
             setPassword("")
             setProfile("");
-            setPopUpMessage(`El usuario ${username} se ha creado correctamente, ya puedes iniciar sesión.`);
+            setPopUpMessage(`El usuario ${name} se ha creado correctamente, ya puedes iniciar sesión.`);
             setIsPopUpOpen(true); 
             setPopUpFunction(() => navigateLogin)
         }
